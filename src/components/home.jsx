@@ -59,7 +59,7 @@ const Home = () => {
             <h3>Silver aluminum</h3>
             <h2>Apple Watch</h2>
             <p>10% de réduction</p>
-            <Link to="/catalogue" className="link">
+            <Link to="/boutique" className="link">
               Acheter Maintenant
             </Link>
           </div>

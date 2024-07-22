@@ -2,7 +2,7 @@ import React from "react";
 import "./shop.css";
 import { FaEye, FaHeart } from "react-icons/fa";
 
-const Shop = ({ shop, Filter, allcatefilter }) => {
+const Shop = ({ shop, Filter, allcatefilter, addtocart }) => {
   return (
     <>
       <div className="shop">
@@ -20,9 +20,9 @@ const Shop = ({ shop, Filter, allcatefilter }) => {
                   <li onClick={() => Filter ("télévision")}>Télévison</li>
                   <li onClick={() => Filter ("ordinateur")}>Ordinateur</li>
                   <li onClick={() => Filter ("montre")}>Montres Connectés</li>
-                  <li onClick={() => Filter ("enceites")}>Enceintes Connectés</li>
+                  <li onClick={() => Filter ("enceintes")}>Enceintes Connectés</li>
                   <li onClick={() => Filter ("electronique")}>Electronique</li>
-                  <li onClick={() => Filter ("ecouters")}>Ecouteurs</li>
+                  <li onClick={() => Filter ("ecouteurs")}>Ecouteurs</li>
                   <li onClick={() => Filter ("téléphone")}>Téléphone</li>
                 </ul>
               </div>
@@ -55,7 +55,7 @@ const Shop = ({ shop, Filter, allcatefilter }) => {
                         <div className="detail">
                          <h3>{Elm.Name}</h3>
                          <p>{Elm.price} Fcfa</p>
-                         <button>Ajouter Au Panier</button>
+                         <button onClick={() => addtocart(Elm)}>Ajouter Au Panier</button>
                         </div>
                       </div>
                     </>
