@@ -36,7 +36,7 @@ const Homeproducts = [
   Name: 'produit5',
   price: '50000',
   image:'image/p5.webp',
-  cat:'electronics',
+  cat:'electronique',
   type:'top'
  },
  {

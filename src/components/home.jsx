@@ -9,7 +9,7 @@ import { FaXTwitter } from "react-icons/fa6";
 import { FaSquareInstagram } from "react-icons/fa6";
 import { FaTiktok } from "react-icons/fa6";
 
-const Home = () => {
+const Home = ({addtocart}) => {
   //Product category
   const [newProduct, setNewProduct] = useState([])
   const [featuredProduct, setFeaturedProduct] = useState([])
@@ -87,19 +87,11 @@ const Home = () => {
                         <div className="box">
                           <div className="img_box">
                             <img src={Elm.image} alt="" />
-                            <div className="icon">
-                              <div className="icon_box">
-                                <FaEye />
-                              </div>
-                              <div className="icon_box">
-                                <FaHeart />
-                              </div>
-                            </div>
                           </div>
                           <div className="info">
                             <h3>{Elm.Name}</h3>
                             <p>{Elm.price}Fcfa</p>
-                            <button className="btn">Ajouter</button>
+                            <button className="btn" onClick={() => addtocart(Elm)}>Ajouter</button>
                           </div>
                         </div>
                       </>
@@ -177,11 +169,9 @@ const Home = () => {
                   </div>
                   <div className="detail">
                     <h3>{Elm.Name}</h3>
-                    <p>{Elm.price}</p>
+                    <p>{Elm.price} Fcfa</p>
                     <div className="icon">
-                      <button><FaEye /></button>
-                      <button><FaHeart /></button>
-                      <button><FaShoppingCart/></button>
+                      <button  onClick={() => addtocart(Elm)}><FaShoppingCart/></button>
                     </div>
                   </div>
               </div>
@@ -204,11 +194,9 @@ const Home = () => {
                   </div>
                   <div className="detail">
                     <h3>{Elm.Name}</h3>
-                    <p>{Elm.price}</p>
+                    <p>{Elm.price} Fcfa</p>
                     <div className="icon">
-                      <button><FaEye /></button>
-                      <button><FaHeart /></button>
-                      <button><FaShoppingCart/></button>
+                      <button  onClick={() => addtocart(Elm)}><FaShoppingCart/></button>
                     </div>
                   </div>
               </div>
@@ -231,11 +219,9 @@ const Home = () => {
                   </div>
                   <div className="detail">
                     <h3>{Elm.Name}</h3>
-                    <p>{Elm.price}</p>
+                    <p>{Elm.price} Fcfa</p>
                     <div className="icon">
-                      <button><FaEye /></button>
-                      <button><FaHeart /></button>
-                      <button><FaShoppingCart/></button>
+                      <button  onClick={() => addtocart(Elm)}><FaShoppingCart/></button>
                     </div>
                   </div>
               </div>

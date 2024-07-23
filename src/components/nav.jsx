@@ -48,6 +48,7 @@ const Nav = ({search, setSearch, searchproduct}) => {
         </div>
         </div>
       </div>
+      
     </>
   );
 };

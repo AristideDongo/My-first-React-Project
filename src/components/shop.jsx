@@ -1,10 +1,47 @@
-import React from "react";
+import React, { useState } from "react";
 import "./shop.css";
 import { FaEye, FaHeart } from "react-icons/fa";
+import { AiOutlineClose } from "react-icons/ai";
 
 const Shop = ({ shop, Filter, allcatefilter, addtocart }) => {
+  //Pour les details des produits
+  const [showDetail, setShowDetail] = useState(false)
+  //Detail Page data
+  const [detail, setDetail] = useState([])
+  //Shop detail box
+  const detailpage = (product) => {
+   const detaildata =  ([{product}])
+   const productdetail = detaildata[0]['product']
+  //  console.log(productdetail);
+  setDetail(productdetail)
+    setShowDetail(true)
+  }
+  const closedetail = () => {
+    setShowDetail(false)
+  }
   return (
     <>
+    {
+      showDetail ?
+      <>
+    <div className="product-detail">
+        <button className="close-btn" onClick={closedetail}><AiOutlineClose/></button>
+        <div className="container">
+          <div className="img-box">
+            <img src={detail.image} alt="" />
+          </div>
+          <div className="info">
+            <h4>{detail.cat}</h4>
+            <h2>{detail.Name}</h2>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil vitae sit, quas aliquam non dolorem illo illum cumque aspernatur unde error dignissimos quasi quia eum, laudantium et quod quam nostrum.</p>
+            <h3>{detail.price} Fcfa</h3>
+            <button onClick={() => addtocart(detail)}>Ajouter Au Panier</button>
+          </div>
+        </div>
+    </div>
+      </>
+      : null
+    }
       <div className="shop">
         <h2>Boutique</h2>
         <p>Acceuil . Boutique</p>
@@ -47,7 +84,7 @@ const Shop = ({ shop, Filter, allcatefilter, addtocart }) => {
                             <li>
                               <FaHeart />
                             </li>
-                            <li>
+                            <li onClick={() => detailpage(Elm)}>
                               <FaEye />
                             </li>
                           </div>
