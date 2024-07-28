@@ -9,7 +9,7 @@ import { FaXTwitter } from "react-icons/fa6";
 import { FaSquareInstagram } from "react-icons/fa6";
 import { FaTiktok } from "react-icons/fa6";
 
-const Home = ({addtocart}) => {
+const Home = ({addtocart, detailpage}) => {
   //Product category
   const [newProduct, setNewProduct] = useState([])
   const [featuredProduct, setFeaturedProduct] = useState([])
@@ -87,6 +87,16 @@ const Home = ({addtocart}) => {
                         <div className="box">
                           <div className="img_box">
                             <img src={Elm.image} alt="" />
+                            <div className="icon">
+                              <div className="icon_box">
+                              <FaHeart />
+                              </div>
+                              <div className="icon_box">
+                               <FaEye />
+                              </div>
+                            </div>
+                          </div>
+                          <div className="icon">
                           </div>
                           <div className="info">
                             <h3>{Elm.Name}</h3>
@@ -98,7 +108,7 @@ const Home = ({addtocart}) => {
                     );
                   })}
                 </div>
-                <button>Voir Plus</button>
+               <Link to="/boutique"><button>Voir Plus</button></Link>
               </div>
             </div>
             <div className="right_box">
@@ -171,6 +181,8 @@ const Home = ({addtocart}) => {
                     <h3>{Elm.Name}</h3>
                     <p>{Elm.price} Fcfa</p>
                     <div className="icon">
+                      <button><FaEye></FaEye></button>
+                      <button><FaHeart /></button>
                       <button  onClick={() => addtocart(Elm)}><FaShoppingCart/></button>
                     </div>
                   </div>
@@ -196,6 +208,8 @@ const Home = ({addtocart}) => {
                     <h3>{Elm.Name}</h3>
                     <p>{Elm.price} Fcfa</p>
                     <div className="icon">
+                      <button><FaEye /></button>
+                      <button><FaHeart /></button>
                       <button  onClick={() => addtocart(Elm)}><FaShoppingCart/></button>
                     </div>
                   </div>
@@ -221,6 +235,8 @@ const Home = ({addtocart}) => {
                     <h3>{Elm.Name}</h3>
                     <p>{Elm.price} Fcfa</p>
                     <div className="icon">
+                      <button><FaEye></FaEye></button>
+                      <button><FaHeart /></button>
                       <button  onClick={() => addtocart(Elm)}><FaShoppingCart/></button>
                     </div>
                   </div>

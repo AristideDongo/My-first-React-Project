@@ -46,6 +46,8 @@ const App = () => {
       alert("Ajouter au panier✅")
     }
   }
+
+  
   console.log(cart)
  return (
    <>

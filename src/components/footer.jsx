@@ -51,21 +51,21 @@ const Footer = () => {
                 <ul>
                   <li>Conditions Générales de vente</li>
                   <li>Politique de Confidentialité</li>
+                  <li>Conditions de Livraison</li>
                 </ul>
               </div>
               <div className="box">
                 <h3>Produits</h3>
                 <ul>
+                  <li>Produits</li>
                   <li>Livraison</li>
-                  <li>suivre ma commande</li>
-                  <li>Nouveaux Produits</li>
-                  <li>Anciens Produits</li>
+                  <li>Bon Affaire</li>
                 </ul>
               </div>
               <div className="box">
                 <h3>Informations</h3>
                 <ul>
-                  <li>Quatier Zanzan, Bondoukou Ci</li>
+                  <li>Quatier Zanzan, Bondoukou, CIV</li>
                   <li>+225 0101010101</li>
                   <li>aristide@gmail.com</li>
                 </ul>
