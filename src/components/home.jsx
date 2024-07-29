@@ -9,11 +9,11 @@ import { FaXTwitter } from "react-icons/fa6";
 import { FaSquareInstagram } from "react-icons/fa6";
 import { FaTiktok } from "react-icons/fa6";
 
-const Home = ({addtocart, detailpage}) => {
+const Home = ({ addtocart }) => {
   //Product category
-  const [newProduct, setNewProduct] = useState([])
-  const [featuredProduct, setFeaturedProduct] = useState([])
-  const [topProduct, setTopProduct] = useState([])
+  const [newProduct, setNewProduct] = useState([]);
+  const [featuredProduct, setFeaturedProduct] = useState([]);
+  const [topProduct, setTopProduct] = useState([]);
   //trending product
   const [trendingProduct, setTrendingProduct] = useState(Homeproducts);
   //Filtre pour trending product
@@ -28,29 +28,29 @@ const Home = ({addtocart, detailpage}) => {
     setTrendingProduct(Homeproducts);
   };
 
-  //type de produit 
-  useEffect (() => {
-    productcategory()
-  })
+  //type de produit
+  useEffect(() => {
+    productcategory();
+  });
   const productcategory = () => {
     //New product
     const newCategory = Homeproducts.filter((x) => {
-      return x.type === 'new'
-    })
-    setNewProduct(newCategory)
+      return x.type === "new";
+    });
+    setNewProduct(newCategory);
 
-    // featured product 
+    // featured product
     const featuredCategory = Homeproducts.filter((x) => {
-      return x.type === 'featured'
-    })
-    setFeaturedProduct(featuredCategory)
+      return x.type === "featured";
+    });
+    setFeaturedProduct(featuredCategory);
 
     //Top product
     const topCategory = Homeproducts.filter((x) => {
-      return x.type === 'top'
-    })
-    setTopProduct(topCategory)
-  }
+      return x.type === "top";
+    });
+    setTopProduct(topCategory);
+  };
   return (
     <>
       <div className="home">
@@ -89,26 +89,32 @@ const Home = ({addtocart, detailpage}) => {
                             <img src={Elm.image} alt="" />
                             <div className="icon">
                               <div className="icon_box">
-                              <FaHeart />
+                                <FaHeart />
                               </div>
                               <div className="icon_box">
-                               <FaEye />
+                                <FaEye />
                               </div>
                             </div>
                           </div>
-                          <div className="icon">
-                          </div>
+                          <div className="icon"></div>
                           <div className="info">
                             <h3>{Elm.Name}</h3>
                             <p>{Elm.price}Fcfa</p>
-                            <button className="btn" onClick={() => addtocart(Elm)}>Ajouter</button>
+                            <button
+                              className="btn"
+                              onClick={() => addtocart(Elm)}
+                            >
+                              Ajouter
+                            </button>
                           </div>
                         </div>
                       </>
                     );
                   })}
                 </div>
-               <Link to="/boutique"><button>Voir Plus</button></Link>
+                <Link to="/boutique">
+                  <button>Voir Plus</button>
+                </Link>
               </div>
             </div>
             <div className="right_box">
@@ -166,85 +172,97 @@ const Home = ({addtocart, detailpage}) => {
         <div className="product_type">
           <div className="container">
             <div className="box">
-            <div className="header">
-              <h2>Nouveaux Produits</h2>
-            </div>
-             {
-              newProduct.map((Elm) => {
-                return(
-                  <>
-              <div className="productbox">
-                  <div className="img-box">
-                    <img src={Elm.image} alt="" />
-                  </div>
-                  <div className="detail">
-                    <h3>{Elm.Name}</h3>
-                    <p>{Elm.price} Fcfa</p>
-                    <div className="icon">
-                      <button><FaEye /></button>
-                      <button><FaHeart /></button>
-                      <button  onClick={() => addtocart(Elm)}><FaShoppingCart/></button>
-                    </div>
-                  </div>
+              <div className="header">
+                <h2>Offre Du Jour</h2>
               </div>
-                 </>
-                )
-              })
-             }
+              {newProduct.map((Elm) => {
+                return (
+                  <>
+                    <div className="productbox">
+                      <div className="img-box">
+                        <img src={Elm.image} alt="" />
+                      </div>
+                      <div className="detail">
+                        <h3>{Elm.Name}</h3>
+                        <p>{Elm.price} Fcfa</p>
+                        <div className="icon">
+                          <button>
+                            <FaEye />
+                          </button>
+                          <button>
+                            <FaHeart />
+                          </button>
+                          <button onClick={() => addtocart(Elm)}>
+                            <FaShoppingCart />
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </>
+                );
+              })}
             </div>
             <div className="box">
-            <div className="header">
-              <h2>Produits Vedettes</h2>
-            </div>
-             {
-              featuredProduct.map((Elm) => {
-                return(
-                  <>
-              <div className="productbox">
-                  <div className="img-box">
-                    <img src={Elm.image} alt="" />
-                  </div>
-                  <div className="detail">
-                    <h3>{Elm.Name}</h3>
-                    <p>{Elm.price} Fcfa</p>
-                    <div className="icon">
-                      <button><FaEye /></button>
-                      <button><FaHeart /></button>
-                      <button  onClick={() => addtocart(Elm)}><FaShoppingCart/></button>
-                    </div>
-                  </div>
+              <div className="header">
+                <h2>Offre De La Semaine</h2>
               </div>
-                 </>
-                )
-              })
-             }
+              {featuredProduct.map((Elm) => {
+                return (
+                  <>
+                    <div className="productbox">
+                      <div className="img-box">
+                        <img src={Elm.image} alt="" />
+                      </div>
+                      <div className="detail">
+                        <h3>{Elm.Name}</h3>
+                        <p>{Elm.price} Fcfa</p>
+                        <div className="icon">
+                          <button>
+                            <FaEye />
+                          </button>
+                          <button>
+                            <FaHeart />
+                          </button>
+                          <button onClick={() => addtocart(Elm)}>
+                            <FaShoppingCart />
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </>
+                );
+              })}
             </div>
             <div className="box">
-            <div className="header">
-              <h2>Meilleurs ventes</h2>
-            </div>
-             {
-              topProduct.map((Elm) => {
-                return(
-                  <>
-              <div className="productbox">
-                  <div className="img-box">
-                    <img src={Elm.image} alt="" />
-                  </div>
-                  <div className="detail">
-                    <h3>{Elm.Name}</h3>
-                    <p>{Elm.price} Fcfa</p>
-                    <div className="icon">
-                      <button><FaEye></FaEye></button>
-                      <button><FaHeart /></button>
-                      <button  onClick={() => addtocart(Elm)}><FaShoppingCart/></button>
-                    </div>
-                  </div>
+              <div className="header">
+                <h2>Vente Flash</h2>
               </div>
-                 </>
-                )
-              })
-             }
+              {topProduct.map((Elm) => {
+                return (
+                  <>
+                    <div className="productbox">
+                      <div className="img-box">
+                        <img src={Elm.image} alt="" />
+                      </div>
+                      <div className="detail">
+                        <h3>{Elm.Name}</h3>
+                        <p>{Elm.price} Fcfa</p>
+                        <div className="icon">
+                          <button>
+                            <FaEye></FaEye>
+                          </button>
+                          <button>
+                            <FaHeart />
+                          </button>
+                          <button onClick={() => addtocart(Elm)}>
+                            <FaShoppingCart />
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </>
+                );
+              })}
             </div>
           </div>
         </div>
