@@ -181,7 +181,7 @@ const Home = ({addtocart, detailpage}) => {
                     <h3>{Elm.Name}</h3>
                     <p>{Elm.price} Fcfa</p>
                     <div className="icon">
-                      <button><FaEye></FaEye></button>
+                      <button><FaEye /></button>
                       <button><FaHeart /></button>
                       <button  onClick={() => addtocart(Elm)}><FaShoppingCart/></button>
                     </div>

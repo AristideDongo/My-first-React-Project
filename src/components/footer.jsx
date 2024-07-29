@@ -55,14 +55,6 @@ const Footer = () => {
                 </ul>
               </div>
               <div className="box">
-                <h3>Produits</h3>
-                <ul>
-                  <li>Produits</li>
-                  <li>Livraison</li>
-                  <li>Bon Affaire</li>
-                </ul>
-              </div>
-              <div className="box">
                 <h3>Informations</h3>
                 <ul>
                   <li>Quatier Zanzan, Bondoukou, CIV</li>
