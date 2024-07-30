@@ -18,40 +18,40 @@ const Home = ({ addtocart }) => {
   // Trending product
   const [trendingProduct, setTrendingProduct] = useState(Homeproducts);
   
-  // Product detail states
-  const [showDetail, setShowDetail] = useState(false);
-  const [detail, setDetail] = useState(null);
-
+  
   // Filter for trending products
   const filtercate = (x) => {
     const filterproduct = Homeproducts.filter((curElm) => curElm.type === x);
     setTrendingProduct(filterproduct);
   };
-
+  
   // Show all trending products
   const allTrendingProduct = () => {
     setTrendingProduct(Homeproducts);
   };
-
+  
   // Get product categories
   useEffect(() => {
     productcategory();
   }, []);
-
+  
   const productcategory = () => {
     // New product
     const newCategory = Homeproducts.filter((x) => x.type === "new");
     setNewProduct(newCategory);
-
+    
     // Featured product
     const featuredCategory = Homeproducts.filter((x) => x.type === "featured");
     setFeaturedProduct(featuredCategory);
-
+    
     // Top product
     const topCategory = Homeproducts.filter((x) => x.type === "top");
     setTopProduct(topCategory);
   };
-
+  
+  // Product detail states
+  const [showDetail, setShowDetail] = useState(false);
+  const [detail, setDetail] = useState(null);
   // Show product details
   const detailpage = (product) => {
     setDetail(product);
