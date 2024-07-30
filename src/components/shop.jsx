@@ -6,50 +6,43 @@ import Homeproducts from "./home_products";
 
 const Shop = ({ shop, Filter, allcatefilter, addtocart }) => {
   //Pour les details des produits
-  const [showDetail, setShowDetail] = useState(false);
+  const [showDetail, setShowDetail] = useState(false)
   //Detail Page data
-  const [detail, setDetail] = useState([Homeproducts]);
+  const [detail, setDetail] = useState([Homeproducts])
   //Shop detail box
   const detailpage = (product) => {
-    const detaildata = [{ product }];
-    const productdetail = detaildata[0]["product"];
+   const detaildata =  ([{product}])
+   const productdetail = detaildata[0]['product']
     // console.log(productdetail);
-    setDetail(productdetail);
-    setShowDetail(true);
-  };
+  setDetail(productdetail)
+    setShowDetail(true)
+  }
   const closedetail = () => {
-    setShowDetail(false);
-  };
+    setShowDetail(false)
+  }
   return (
     <>
-      {showDetail ? (
-        <>
-          <div className="product-detail">
-            <button className="close-btn" onClick={closedetail}>
-              <AiOutlineClose />
-            </button>
-            <div className="container">
-              <div className="img-box">
-                <img src={detail.image} alt="" />
-              </div>
-              <div className="info">
-                <h4>{detail.cat}</h4>
-                <h2>{detail.Name}</h2>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Nihil vitae sit, quas aliquam non dolorem illo illum cumque
-                  aspernatur unde error dignissimos quasi quia eum, laudantium
-                  et quod quam nostrum.
-                </p>
-                <h3>{detail.price} Fcfa</h3>
-                <button onClick={() => addtocart(detail)}>
-                  Ajouter Au Panier
-                </button>
-              </div>
-            </div>
+    {
+      showDetail &&
+      <>
+    <div className="product-detail">
+        <button className="close-btn" onClick={closedetail}><AiOutlineClose/></button>
+        <div className="container">
+          <div className="img-box">
+            <img src={detail.image} alt="" />
           </div>
-        </>
-      ) : null}
+          <div className="info">
+            <h4>{detail.cat}</h4>
+            <h2>{detail.Name}</h2>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil vitae sit, quas aliquam non dolorem illo illum cumque aspernatur unde error dignissimos quasi quia eum, laudantium et quod quam nostrum.</p>
+            <h3>{detail.price} Fcfa</h3>
+            <button onClick={() => addtocart(detail)}>Ajouter Au Panier</button>
+          </div>
+        </div>
+    </div>
+      </>
+      
+    }
       <div className="shop">
         <h2>Boutique</h2>
         <p>Acceuil . Boutique</p>
@@ -61,16 +54,14 @@ const Shop = ({ shop, Filter, allcatefilter, addtocart }) => {
               </div>
               <div className="box">
                 <ul>
-                  <li onClick={() => allcatefilter()}>Tous</li>
-                  <li onClick={() => Filter("télévision")}>Télévison</li>
-                  <li onClick={() => Filter("ordinateur")}>Ordinateur</li>
-                  <li onClick={() => Filter("montre")}>Montres Connectés</li>
-                  <li onClick={() => Filter("enceintes")}>
-                    Enceintes Connectés
-                  </li>
-                  <li onClick={() => Filter("electronique")}>Electronique</li>
-                  <li onClick={() => Filter("ecouteurs")}>Ecouteurs</li>
-                  <li onClick={() => Filter("téléphone")}>Téléphone</li>
+                 <li onClick={() => allcatefilter ()}>Tous</li>
+                  <li onClick={() => Filter ("télévision")}>Télévison</li>
+                  <li onClick={() => Filter ("ordinateur")}>Ordinateur</li>
+                  <li onClick={() => Filter ("montre")}>Montres Connectés</li>
+                  <li onClick={() => Filter ("enceintes")}>Enceintes Connectés</li>
+                  <li onClick={() => Filter ("electronique")}>Electronique</li>
+                  <li onClick={() => Filter ("ecouteurs")}>Ecouteurs</li>
+                  <li onClick={() => Filter ("téléphone")}>Téléphone</li>
                 </ul>
               </div>
             </div>
@@ -100,11 +91,9 @@ const Shop = ({ shop, Filter, allcatefilter, addtocart }) => {
                           </div>
                         </div>
                         <div className="detail">
-                          <h3>{Elm.Name}</h3>
-                          <p>{Elm.price} Fcfa</p>
-                          <button onClick={() => addtocart(Elm)}>
-                            Ajouter Au Panier
-                          </button>
+                         <h3>{Elm.Name}</h3>
+                         <p>{Elm.price} Fcfa</p>
+                         <button onClick={() => addtocart(Elm)}>Ajouter Au Panier</button>
                         </div>
                       </div>
                     </>
