@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./home.css";
 import { Link } from "react-router-dom";
-import Homeproducts from "./home_products";
+import Homeproducts from "../home_products/home_products";
 import { FaEye, FaShoppingCart } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
 import { FaFacebookF } from "react-icons/fa6";
@@ -10,7 +10,7 @@ import { FaSquareInstagram } from "react-icons/fa6";
 import { FaTiktok } from "react-icons/fa6";
 import { AiOutlineClose } from "react-icons/ai";
 
-const Home = ({ addtocart }) => {
+const Home = ({ addtocart, addlike }) => {
   // Product category
   const [newProduct, setNewProduct] = useState([]);
   const [featuredProduct, setFeaturedProduct] = useState([]);
@@ -113,7 +113,7 @@ const Home = ({ addtocart }) => {
                       <div className="img_box">
                         <img src={Elm.image} alt="" />
                         <div className="icon">
-                          <div className="icon_box">
+                          <div className="icon_box" onClick={() => addlike(Elm)}>
                             <FaHeart />
                           </div>
                           <div className="icon_box" onClick={() => detailpage(Elm)}>
@@ -187,7 +187,7 @@ const Home = ({ addtocart }) => {
                     <p>{Elm.price} Fcfa</p>
                     <div className="icon">
                       <button onClick={() => detailpage(Elm)}><FaEye /></button>
-                      <button><FaHeart /></button>
+                      <button onClick={() => addlike(Elm)}><FaHeart /></button>
                       <button onClick={() => addtocart(Elm)}><FaShoppingCart /></button>
                     </div>
                   </div>
@@ -208,7 +208,7 @@ const Home = ({ addtocart }) => {
                     <p>{Elm.price} Fcfa</p>
                     <div className="icon">
                       <button onClick={() => detailpage(Elm)}><FaEye /></button>
-                      <button><FaHeart /></button>
+                      <button onClick={() => addlike(Elm)}><FaHeart /></button>
                       <button onClick={() => addtocart(Elm)}><FaShoppingCart /></button>
                     </div>
                   </div>
@@ -229,7 +229,7 @@ const Home = ({ addtocart }) => {
                     <p>{Elm.price} Fcfa</p>
                     <div className="icon">
                       <button onClick={() => detailpage(Elm)}><FaEye /></button>
-                      <button><FaHeart /></button>
+                      <button onClick={() => addlike(Elm)}><FaHeart /></button>
                       <button onClick={() => addtocart(Elm)}><FaShoppingCart /></button>
                     </div>
                   </div>

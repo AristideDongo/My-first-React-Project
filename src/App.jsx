@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { BrowserRouter } from "react-router-dom";
-import Nav from "./components/nav";
+import Nav from "./components/navbar/nav";
 import Rout from "./components/rout";
-import Footer from "./components/footer";
-import Homeproducts from "./components/home_products";
+import Footer from "./components/footer/footer";
+import Homeproducts from "./components/home_products/home_products";
 
 const App = () => {
+  //product to like
+  const [like, setLike] = useState([])
   //Add TO cart
   const [cart, setCart] = useState([]);
 
@@ -46,6 +48,20 @@ const App = () => {
       alert("Ajouter au panier✅");
     }
   };
+
+  //product liked
+  const addlike = (products) => {
+    const existy = like.find((i) => {
+      return i.id === products.id
+    })
+      if (existy) {
+        alert("❌Vous avez déjà ajouter ce produit à votre collection!");
+      } else {
+        setLike([...like, {...products, quantity: 1}])
+        alert("Ajouter à votre collection✅");
+      }
+      
+  }
   return (
     <>
       <BrowserRouter>
@@ -61,6 +77,9 @@ const App = () => {
           Filter={Filter}
           allcatefilter={allcatefilter}
           addtocart={addtocart}
+          addlike={addlike}
+          setLike={setLike}
+          like={like}
         />
         <Footer />
       </BrowserRouter>

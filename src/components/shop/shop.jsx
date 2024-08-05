@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import "./shop.css";
 import { FaEye, FaHeart } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
-import Homeproducts from "./home_products";
+import Homeproducts from "../home_products/home_products";
 
-const Shop = ({ shop, Filter, allcatefilter, addtocart }) => {
+const Shop = ({ shop, Filter, allcatefilter, addtocart, addlike }) => {
   //Pour les details des produits
   const [showDetail, setShowDetail] = useState(false)
   //Detail Page data
@@ -20,6 +20,7 @@ const Shop = ({ shop, Filter, allcatefilter, addtocart }) => {
   const closedetail = () => {
     setShowDetail(false)
   }
+  console.log(addlike);
   return (
     <>
     {
@@ -82,7 +83,7 @@ const Shop = ({ shop, Filter, allcatefilter, addtocart }) => {
                         <div className="img-box">
                           <img src={Elm.image} alt="" />
                           <div className="icon">
-                            <li>
+                            <li onClick={() => addlike(Elm)}>
                               <FaHeart />
                             </li>
                             <li onClick={() => detailpage(Elm)}>

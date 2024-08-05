@@ -13,15 +13,15 @@ const Nav = ({search, setSearch, searchproduct}) => {
       <div className="header">
         <div className="last_header">
           <div className="logo">
-            <h1>ARISTIDE</h1>
+            <h1>LOGO</h1>
           </div>
           <div className="nav">
             <ul>
              <li><Link to="/" className="link">Acceuil</Link></li>
              <li><Link to="/boutique" className="link">Boutique</Link></li>
              <li><Link to="/panier" className="link">Panier</Link></li>
+             <li><Link to="/collection" className="link">Collection</Link></li>
              <li><Link to="/propos" className="link">Qui sommes-nous</Link></li>
-             <li><Link to="/contact" className="link">Contact</Link></li>
             </ul>
           </div>
           <div className="mid_header">
