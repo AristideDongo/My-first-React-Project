@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+# Projet E-commerce React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Ce projet est une application de commerce électronique développée avec React. Il permet aux utilisateurs de naviguer, rechercher et acheter des produits en ligne. L'application utilise `react-router-dom` pour la navigation et gère l'état global avec `useReducer`.
 
-## Available Scripts
+## Fonctionnalités
 
-In the project directory, you can run:
+- **Navigation** : Utilisation de `react-router-dom` pour la navigation entre les différentes pages de l'application.
+- **Pages Principales** :
+  - **Accueil** : Présente les produits tendance et offre des filtres pour les nouveautés, les produits vedettes et les meilleures ventes.
+  - **Boutique** : Affiche tous les produits disponibles avec des options de filtrage et de tri.
+  - **Panier** : Permet aux utilisateurs de voir et de gérer les produits ajoutés à leur panier.
+  - **À propos** : Fournit des informations sur l'entreprise et permet aux utilisateurs de nous contacter via un formulaire.
+- **Gestion du Panier** : Ajout et suppression de produits dans le panier.
+- **Formulaire de Contact** : Permet aux utilisateurs de nous envoyer des messages directement depuis l'application.
 
-### `npm start`
+## Structure du Projet
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **src/App.jsx** : Point d'entrée principal de l'application. Configure les routes et importe les composants principaux.
+- **src/components/rout.jsx** : Définit les routes de l'application et les composants associés.
+- **src/components/about/about.jsx** : Contient la page "À propos" avec des informations sur l'entreprise et un formulaire de contact.
+- **src/components/home/home.jsx** : Contient la page d'accueil avec les produits tendance et les filtres.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Installation
 
-### `npm test`
+1. Clonez le dépôt :
+   ```bash
+   git clone https://github.com/votre-utilisateur/votre-repo.git
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+##Screenshot du projet
+![Capture d’écran 2024-08-06 141148](https://github.com/user-attachments/assets/32264ad9-c345-44d5-a294-0a0e0f8374b6)
+![Capture d’écran 2024-08-06 141727](https://github.com/user-attachments/assets/7fc0ef19-6f9b-4fb4-be94-c36a9848a228)
+![Capture d’écran 2024-08-06 141835](https://github.com/user-attachments/assets/19be06d9-d872-4c37-a15b-4e28e650a8e7)
+![Capture d’écran 2024-08-06 141910](https://github.com/user-attachments/assets/1ec35406-4e9d-4af5-92c5-a9558f5b3868)
+![Capture d’écran 2024-08-06 145829](https://github.com/user-attachments/assets/4fcf007a-1542-4ef2-9e3a-7e4b10d0f268)
+![Capture d’écran 2024-08-06 145920](https://github.com/user-attachments/assets/36a111a8-05dc-446d-815c-82924a8c089a)
+![Capture d’écran 2024-08-06 150351](https://github.com/user-attachments/assets/0129b2f6-c673-491f-a5f0-e1471af622d2)
+![Capture d’écran 2024-08-06 150527](https://github.com/user-attachments/assets/37acda17-77f5-4699-85c8-ed0a5ba1ae6c)
+![Capture d’écran 2024-08-06 151159](https://github.com/user-attachments/assets/30d5f2e8-74ee-4e83-be77-2dba9790715e)
