@@ -24,7 +24,7 @@ const Homeproducts = [
   type:'new'
  },
  {
-  id: 4,
+  id: 4, 
   Name: 'Boom Blue',
   price: '40000',
   image:'image/p4.webp',

@@ -193,7 +193,6 @@ const Home = ({ addtocart, addlike }) => {
                     <p>{Elm.price} Fcfa</p>
                     <div className="icon">
                       <button onClick={() => detailpage(Elm)}><FaEye /></button>
-                      <button onClick={() => addlike(Elm)}><FaHeart /></button>
                       <button onClick={() => addtocart(Elm)}><FaShoppingCart /></button>
                     </div>
                   </div>
@@ -214,7 +213,6 @@ const Home = ({ addtocart, addlike }) => {
                     <p>{Elm.price} Fcfa</p>
                     <div className="icon">
                       <button onClick={() => detailpage(Elm)}><FaEye /></button>
-                      <button onClick={() => addlike(Elm)}><FaHeart /></button>
                       <button onClick={() => addtocart(Elm)}><FaShoppingCart /></button>
                     </div>
                   </div>
