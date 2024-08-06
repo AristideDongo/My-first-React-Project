@@ -1,66 +1,51 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useReducer } from "react";
 import "./home.css";
 import { Link } from "react-router-dom";
 import Homeproducts from "../home_products/home_products";
-import { FaEye, FaShoppingCart } from "react-icons/fa";
-import { FaHeart } from "react-icons/fa";
-import { FaFacebookF } from "react-icons/fa6";
-import { FaXTwitter } from "react-icons/fa6";
-import { FaSquareInstagram } from "react-icons/fa6";
-import { FaTiktok } from "react-icons/fa6";
+import { FaEye, FaShoppingCart, FaHeart, FaFacebookF, FaTwitter, FaInstagram, FaTiktok } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
+import { initialState, Homereducer } from './home-reduce';
 
 const Home = ({ addtocart, addlike }) => {
-  // Product category
-  const [newProduct, setNewProduct] = useState([]);
-  const [featuredProduct, setFeaturedProduct] = useState([]);
-  const [topProduct, setTopProduct] = useState([]);
-  // Trending product
-  const [trendingProduct, setTrendingProduct] = useState(Homeproducts);
-  
-  
+  const [state, dispatch] = useReducer(Homereducer, initialState);
+  const { newProduct, featuredProduct, topProduct, trendingProduct, showDetail, detail } = state;
+
+  // Load products into state when component mounts
+  useEffect(() => {
+    const loadProducts = () => {
+      // Set initial products
+      const newCategory = Homeproducts.filter((x) => x.type === "new");
+      const featuredCategory = Homeproducts.filter((x) => x.type === "featured");
+      const topCategory = Homeproducts.filter((x) => x.type === "top");
+      
+      dispatch({ type: 'SET_NEW_PRODUCT', payload: newCategory });
+      dispatch({ type: 'SET_FEATURED_PRODUCT', payload: featuredCategory });
+      dispatch({ type: 'SET_TOP_PRODUCT', payload: topCategory });
+      dispatch({ type: 'SET_TRENDING_PRODUCT', payload: Homeproducts });
+    };
+
+    loadProducts();
+  }, []);
+
   // Filter for trending products
   const filtercate = (x) => {
     const filterproduct = Homeproducts.filter((curElm) => curElm.type === x);
-    setTrendingProduct(filterproduct);
+    dispatch({ type: 'FILTER_TRENDING', payload: filterproduct });
   };
   
   // Show all trending products
   const allTrendingProduct = () => {
-    setTrendingProduct(Homeproducts);
+    dispatch({ type: 'FILTER_TRENDING', payload: Homeproducts });
   };
-  
-  // Get product categories
-  useEffect(() => {
-    productcategory();
-  }, []);
-  
-  const productcategory = () => {
-    // New product
-    const newCategory = Homeproducts.filter((x) => x.type === "new");
-    setNewProduct(newCategory);
-    
-    // Featured product
-    const featuredCategory = Homeproducts.filter((x) => x.type === "featured");
-    setFeaturedProduct(featuredCategory);
-    
-    // Top product
-    const topCategory = Homeproducts.filter((x) => x.type === "top");
-    setTopProduct(topCategory);
-  };
-  
-  // Product detail states
-  const [showDetail, setShowDetail] = useState(false);
-  const [detail, setDetail] = useState(null);
+
   // Show product details
   const detailpage = (product) => {
-    setDetail(product);
-    setShowDetail(true);
+    dispatch({ type: 'SHOW_DETAIL', payload: product });
   };
 
   // Close product details
   const closedetail = () => {
-    setShowDetail(false);
+    dispatch({ type: 'CLOSE_DETAIL' });
   };
 
   return (
@@ -71,7 +56,7 @@ const Home = ({ addtocart, addlike }) => {
           <button className="close-btn" onClick={closedetail}><AiOutlineClose /></button>
           <div className="container">
             <div className="img-box">
-              <img src={detail.image} alt="" />
+              <img src={detail.image} alt={detail.Name} />
             </div>
             <div className="info">
               <h4>{detail.cat}</h4>
@@ -98,7 +83,7 @@ const Home = ({ addtocart, addlike }) => {
             <div className="left_box">
               <div className="header">
                 <div className="heading">
-                  <h2 onClick={() => allTrendingProduct()}>Tendance Du Moment</h2>
+                  <h2 onClick={allTrendingProduct}>Tendance Du Moment</h2>
                 </div>
                 <div className="cate">
                   <h3 onClick={() => filtercate("new")}>Nouvautés</h3>
@@ -108,26 +93,30 @@ const Home = ({ addtocart, addlike }) => {
               </div>
               <div className="products">
                 <div className="container">
-                  {trendingProduct.map((Elm) => (
-                    <div className="box" key={Elm.id}>
-                      <div className="img_box">
-                        <img src={Elm.image} alt="" />
-                        <div className="icon">
-                          <div className="icon_box" onClick={() => addlike(Elm)}>
-                            <FaHeart />
-                          </div>
-                          <div className="icon_box" onClick={() => detailpage(Elm)}>
-                            <FaEye />
+                  {trendingProduct.length > 0 ? (
+                    trendingProduct.map((Elm) => (
+                      <div className="box" key={Elm.id}>
+                        <div className="img_box">
+                          <img src={Elm.image} alt={Elm.Name} />
+                          <div className="icon">
+                            <div className="icon_box" onClick={() => addlike(Elm)}>
+                              <FaHeart />
+                            </div>
+                            <div className="icon_box" onClick={() => detailpage(Elm)}>
+                              <FaEye />
+                            </div>
                           </div>
                         </div>
+                        <div className="info">
+                          <h3>{Elm.Name}</h3>
+                          <p>{Elm.price}Fcfa</p>
+                          <button className="btn" onClick={() => addtocart(Elm)}>Ajouter</button>
+                        </div>
                       </div>
-                      <div className="info">
-                        <h3>{Elm.Name}</h3>
-                        <p>{Elm.price}Fcfa</p>
-                        <button className="btn" onClick={() => addtocart(Elm)}>Ajouter</button>
-                      </div>
-                    </div>
-                  ))}
+                    ))
+                  ) : (
+                    <p>Aucun produit disponible</p>
+                  )}
                 </div>
                 <Link to="/boutique">
                   <button>Voir Plus</button>
@@ -142,7 +131,7 @@ const Home = ({ addtocart, addlike }) => {
                   </div>
                   <div className="detail">
                     <div className="img_box">
-                      <img src="image/file.png" alt="" />
+                      <img src="image/file.png" alt="Service Client" />
                     </div>
                     <div className="info">
                       <h3>Carelle</h3>
@@ -161,8 +150,8 @@ const Home = ({ addtocart, addlike }) => {
                     <button>S'abonner</button>
                     <div className="icon_box">
                       <div className="icon"><FaFacebookF /></div>
-                      <div className="icon"><FaXTwitter /></div>
-                      <div className="icon"><FaSquareInstagram /></div>
+                      <div className="icon"><FaTwitter /></div>
+                      <div className="icon"><FaInstagram /></div>
                       <div className="icon"><FaTiktok /></div>
                     </div>
                   </div>
@@ -180,7 +169,7 @@ const Home = ({ addtocart, addlike }) => {
               {newProduct.map((Elm) => (
                 <div className="productbox" key={Elm.id}>
                   <div className="img-box">
-                    <img src={Elm.image} alt="" />
+                    <img src={Elm.image} alt={Elm.Name} />
                   </div>
                   <div className="detail">
                     <h3>{Elm.Name}</h3>
@@ -201,7 +190,7 @@ const Home = ({ addtocart, addlike }) => {
               {featuredProduct.map((Elm) => (
                 <div className="productbox" key={Elm.id}>
                   <div className="img-box">
-                    <img src={Elm.image} alt="" />
+                    <img src={Elm.image} alt={Elm.Name} />
                   </div>
                   <div className="detail">
                     <h3>{Elm.Name}</h3>
@@ -217,12 +206,12 @@ const Home = ({ addtocart, addlike }) => {
             </div>
             <div className="box">
               <div className="header">
-                <h2>Vente Flash</h2>
+                <h2>Les Plus Vendus</h2>
               </div>
               {topProduct.map((Elm) => (
                 <div className="productbox" key={Elm.id}>
                   <div className="img-box">
-                    <img src={Elm.image} alt="" />
+                    <img src={Elm.image} alt={Elm.Name} />
                   </div>
                   <div className="detail">
                     <h3>{Elm.Name}</h3>

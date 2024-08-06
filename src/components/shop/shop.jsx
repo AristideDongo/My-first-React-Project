@@ -1,43 +1,37 @@
-import React, { useState } from "react";
+import React, { useReducer } from "react";
 import "./shop.css";
 import { FaEye, FaHeart } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
+import { initialState, shopReducer } from "./shop-reduce";
 import Homeproducts from "../home_products/home_products";
 
 const Shop = ({ shop, Filter, allcatefilter, addtocart, addlike }) => {
-  //Pour les details des produits
-  const [showDetail, setShowDetail] = useState(false)
-  //Detail Page data
-  const [detail, setDetail] = useState([Homeproducts])
-  //Shop detail box
-  const detailpage = (product) => {
-   const detaildata =  ([{product}])
-   const productdetail = detaildata[0]['product']
-    // console.log(productdetail);
-  setDetail(productdetail)
-    setShowDetail(true)
-  }
-  const closedetail = () => {
-    setShowDetail(false)
-  }
-  console.log(addlike);
+  const [state, dispatch] = useReducer(shopReducer, initialState)  
+    //to display the details of the different products
+    const detailpage = (product) => {
+      dispatch({type: 'SHOW_DETAIL', payload: product})
+    }
+    //For close to details
+    const closedetail = () => {
+      dispatch({type: 'CLOSE_DETAIL'})
+    }
   return (
     <>
     {
-      showDetail &&
+      state.showDetail &&
       <>
     <div className="product-detail">
         <button className="close-btn" onClick={closedetail}><AiOutlineClose/></button>
         <div className="container">
           <div className="img-box">
-            <img src={detail.image} alt="" />
+            <img src={state.detail.image} alt="" />
           </div>
           <div className="info">
-            <h4>{detail.cat}</h4>
-            <h2>{detail.Name}</h2>
+            <h4>{state.detail.cat}</h4>
+            <h2>{state.detail.Name}</h2>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil vitae sit, quas aliquam non dolorem illo illum cumque aspernatur unde error dignissimos quasi quia eum, laudantium et quod quam nostrum.</p>
-            <h3>{detail.price} Fcfa</h3>
-            <button onClick={() => addtocart(detail)}>Ajouter Au Panier</button>
+            <h3>{state.detail.price} Fcfa</h3>
+            <button onClick={() => addtocart(state.detail)}>Ajouter Au Panier</button>
           </div>
         </div>
     </div>
@@ -79,7 +73,7 @@ const Shop = ({ shop, Filter, allcatefilter, addtocart, addlike }) => {
                 {shop.map((Elm) => {
                   return (
                     <>
-                      <div className="box">
+                      <div className="box" key={Elm.id}>
                         <div className="img-box">
                           <img src={Elm.image} alt="" />
                           <div className="icon">

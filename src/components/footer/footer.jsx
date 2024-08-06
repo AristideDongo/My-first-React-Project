@@ -1,6 +1,6 @@
 import React from "react";
 import "./footer.css";
-import { FaHeadphones, FaPiggyBank, FaWallet } from "react-icons/fa6";
+import { FaHeadphones, FaPiggyBank } from "react-icons/fa6";
 import { FaShippingFast } from "react-icons/fa";
 
 const Footer = () => {
