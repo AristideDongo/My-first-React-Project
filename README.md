@@ -24,7 +24,7 @@ Ce projet est une application de commerce électronique développée avec React.
 
 1. Clonez le dépôt :
    ```bash
-   git clone https://github.com/votre-utilisateur/votre-repo.git
+   https://github.com/AristideDongo/My-first-React-Project.git
 
 ##Screenshot du projet
 ![Capture d’écran 2024-08-06 141148](https://github.com/user-attachments/assets/32264ad9-c345-44d5-a294-0a0e0f8374b6)
