@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import { BrowserRouter } from "react-router-dom";
 import Nav from "./components/navbar/nav";
 import Rout from "./components/rout";
@@ -36,10 +36,16 @@ const App = () => {
   const addtocart = (product) => {
     dispatch({ type: "ADD_TO_CART", payload: product });
   };
-  const addlike = (product) => {
-    dispatch({ type: "ADD_LIKE", payload: product });
-  };
-
+  useEffect(() => {
+    const time = setTimeout(() => {
+      if(state.search) {
+        searchproduct()
+      } else{
+        allcatefilter()
+      }
+    }, 1000)
+    return () =>(time)
+  }, [state.search])
   return (
     <>
       <BrowserRouter>
@@ -56,7 +62,6 @@ const App = () => {
           Filter={Filter}
           allcatefilter={allcatefilter}
           addtocart={addtocart}
-          addlike={addlike}
           setLike={setLike}
           like={state.like}
         />

@@ -77,9 +77,6 @@ const Shop = ({ shop, Filter, allcatefilter, addtocart, addlike }) => {
                         <div className="img-box">
                           <img src={Elm.image} alt="" />
                           <div className="icon">
-                            <li onClick={() => addlike(Elm)}>
-                              <FaHeart />
-                            </li>
                             <li onClick={() => detailpage(Elm)}>
                               <FaEye />
                             </li>

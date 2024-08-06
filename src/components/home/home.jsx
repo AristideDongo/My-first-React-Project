@@ -99,9 +99,6 @@ const Home = ({ addtocart, addlike }) => {
                         <div className="img_box">
                           <img src={Elm.image} alt={Elm.Name} />
                           <div className="icon">
-                            <div className="icon_box" onClick={() => addlike(Elm)}>
-                              <FaHeart />
-                            </div>
                             <div className="icon_box" onClick={() => detailpage(Elm)}>
                               <FaEye />
                             </div>
@@ -176,7 +173,6 @@ const Home = ({ addtocart, addlike }) => {
                     <p>{Elm.price} Fcfa</p>
                     <div className="icon">
                       <button onClick={() => detailpage(Elm)}><FaEye /></button>
-                      <button onClick={() => addlike(Elm)}><FaHeart /></button>
                       <button onClick={() => addtocart(Elm)}><FaShoppingCart /></button>
                     </div>
                   </div>

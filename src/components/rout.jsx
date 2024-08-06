@@ -4,7 +4,6 @@ import Home from "./home/home";
 import Shop from "./shop/shop";
 import Cart from "./cart/cart";
 import About from "./about/about";
-import Collection from "./collection/collection";
 
 const Rout = ({
   shop,
@@ -13,16 +12,14 @@ const Rout = ({
   addtocart,
   cart,
   setCart,
-  addlike,
-  like,
-  setLike,
+
 }) => {
   return (
     <>
       <Routes>
         <Route
           path="/"
-          element={<Home addtocart={addtocart} addlike={addlike} />}
+          element={<Home addtocart={addtocart} />}
         />
         <Route
           path="/panier"
@@ -36,15 +33,10 @@ const Rout = ({
               Filter={Filter}
               allcatefilter={allcatefilter}
               addtocart={addtocart}
-              addlike={addlike}
             />
           }
         />
         <Route path="/propos" element={<About />} />
-        <Route
-          path="/collection"
-          element={<Collection like={like} setLike={setLike} />}
-        />
       </Routes>
     </>
   );

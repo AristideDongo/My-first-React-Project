@@ -1,7 +1,7 @@
 const Homeproducts = [
  {
   id: 1,
-  Name: 'produit1',
+  Name: 'Télévision HD',
   price: '10000',
   image:'image/p1.webp',
   cat:'télévision',
@@ -9,7 +9,7 @@ const Homeproducts = [
  },
  {
   id: 2,
-  Name: 'produit2',
+  Name: 'Ordinateur Pro',
   price: '20000',
   image:'image/p2.webp',
   cat:'ordinateur',
@@ -17,7 +17,7 @@ const Homeproducts = [
  },
  {
   id: 3,
-  Name: 'produit3',
+  Name: 'Montre Tactile',
   price: '30000',
   image:'image/p3.webp',
   cat:'montre',
@@ -25,7 +25,7 @@ const Homeproducts = [
  },
  {
   id: 4,
-  Name: 'produit4',
+  Name: 'Enceintes Boom',
   price: '40000',
   image:'image/p4.webp',
   cat:'enceintes',
@@ -33,7 +33,7 @@ const Homeproducts = [
  },
  {
   id: 5,
-  Name: 'produit5',
+  Name: 'Caméra',
   price: '50000',
   image:'image/p5.webp',
   cat:'electronique',
@@ -41,7 +41,7 @@ const Homeproducts = [
  },
  {
   id: 6,
-  Name: 'produit6',
+  Name: 'Téléphone 5G',
   price: '60000',
   image:'image/p6.webp',
   cat:'téléphone',
@@ -49,7 +49,7 @@ const Homeproducts = [
  },
  {
   id: 7,
-  Name: 'produit7',
+  Name: 'Enceintes Elite',
   price: '70000',
   image:'image/p7.webp',
   cat:'enceintes',
@@ -57,7 +57,7 @@ const Homeproducts = [
  },
  {
   id: 8,
-  Name: 'produit8',
+  Name: 'Enceintes Plus',
   price: '80000',
   image:'image/p8.webp',
   cat:'enceintes',
@@ -65,7 +65,7 @@ const Homeproducts = [
  },
  {
   id: 9,
-  Name: 'produit9',
+  Name: 'Gamer X',
   price: '90000',
   image:'image/p9.jpg',
   cat:'ordinateur',
@@ -73,7 +73,7 @@ const Homeproducts = [
  },
  {
   id: 10,
-  Name: 'produit10',
+  Name: 'Écouteurs Pro',
   price: '100000',
   image:'image/p10.jpg',
   cat:'ecouteurs',
@@ -81,7 +81,7 @@ const Homeproducts = [
  },
  {
   id: 11,
-  Name: 'produit11',
+  Name: 'Tablette',
   price: '110000',
   image:'image/p11.jpg',
   cat:'electronique',
@@ -89,7 +89,7 @@ const Homeproducts = [
  },
  {
   id: 12,
-  Name: 'produit12',
+  Name: 'Enceintes 4K',
   price: '120000',
   image:'image/p12.jpg',
   cat:'enceintes',

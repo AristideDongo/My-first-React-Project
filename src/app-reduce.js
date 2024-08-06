@@ -58,7 +58,7 @@ export const Appreducer = (state, action) => {
         return state;
       }
       const searchfilter = action.payload.products.filter(
-        (x) => x.cat === state.search
+        (x) => x.Name.toLowerCase().startsWith(state.search.toLowerCase())
       );
       return { ...state, shop: searchfilter };
     default:
