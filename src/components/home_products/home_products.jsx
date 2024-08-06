@@ -9,7 +9,7 @@ const Homeproducts = [
  },
  {
   id: 2,
-  Name: 'Ordinateur Pro',
+  Name: 'HP Pro',
   price: '20000',
   image:'image/p2.webp',
   cat:'ordinateur',
@@ -25,7 +25,7 @@ const Homeproducts = [
  },
  {
   id: 4,
-  Name: 'Enceintes Boom',
+  Name: 'Boom Blue',
   price: '40000',
   image:'image/p4.webp',
   cat:'enceintes',
