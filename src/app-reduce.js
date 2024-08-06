@@ -41,14 +41,22 @@ export const Appreducer = (state, action) => {
           like: [...state.like, { ...action.payload, quantity: 1 }],
         };
       }
+    case "ALL_CATE_FILTER":
+      return { ...state, shop: action.payload };
     case "FILTER":
+      if (!action.payload.products) {
+        console.error("Products are undefined in FILTER action");
+        return state;
+      }
       const cateFilter = action.payload.products.filter(
         (product) => product.cat === action.payload.category
       );
       return { ...state, shop: cateFilter };
-    case "ALL_CATE_FILTER":
-      return { ...state, shop: action.payload };
     case "SEARCH_PRODUCT":
+      if (!action.payload.products) {
+        console.error("Products are undefined in SEARCH_PRODUCT action");
+        return state;
+      }
       const searchfilter = action.payload.products.filter(
         (x) => x.cat === state.search
       );

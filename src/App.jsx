@@ -31,7 +31,7 @@ const App = () => {
     dispatch({ type: "ALL_CATE_FILTER", payload: Homeproducts });
   };
   const searchproduct = () => {
-    dispatch({ type: "SEARCH_PRODUCT", payload: Homeproducts });
+    dispatch({ type: "SEARCH_PRODUCT", payload: { products: Homeproducts } });
   };
   const addtocart = (product) => {
     dispatch({ type: "ADD_TO_CART", payload: product });
@@ -39,6 +39,7 @@ const App = () => {
   const addlike = (product) => {
     dispatch({ type: "ADD_LIKE", payload: product });
   };
+
   return (
     <>
       <BrowserRouter>

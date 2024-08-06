@@ -20,7 +20,6 @@ const Nav = ({search, setSearch, searchproduct}) => {
              <li><Link to="/" className="link">Acceuil</Link></li>
              <li><Link to="/boutique" className="link">Boutique</Link></li>
              <li><Link to="/panier" className="link">Panier</Link></li>
-             <li><Link to="/collection" className="link">Collection</Link></li>
              <li><Link to="/propos" className="link">Qui sommes-nous</Link></li>
             </ul>
           </div>
