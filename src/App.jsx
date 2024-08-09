@@ -62,8 +62,6 @@ const App = () => {
           Filter={Filter}
           allcatefilter={allcatefilter}
           addtocart={addtocart}
-          setLike={setLike}
-          like={state.like}
         />
         <Footer />
       </BrowserRouter>
